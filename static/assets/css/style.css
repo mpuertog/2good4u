@@ -27,6 +27,7 @@ html {
   min-height: 100%;
   background: #f1f1f2;
 }
+
 h1,
 h2,
 h3,
@@ -37,6 +38,19 @@ h6 {
   margin: 10px 0;
   font-weight: 600;
   font-family: 'Source Sans Pro', sans-serif;
+}
+.titleSubject img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+.title a {
+  margin-left: 20px;
+}
+.title h1 {
+    display: inline-block;
+    margin-left: 20px;
 }
 h1 {
   line-height: 43px;

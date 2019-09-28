@@ -107,3 +107,6 @@ venv.bak/
 # IDE Files
 .idea/
 .vscode/
+
+# MAC
+.DS_Store/
