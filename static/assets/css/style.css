@@ -3054,9 +3054,16 @@ body.fixed-left .side-menu.left {
 .page-header-title .breadcrumb {
   margin-bottom: 0;
 }
+.mt-3 {
+  margin-top: 30 !important;
+}
+.ml-3 {
+  margin-left: 30 !important;
+}
 .page-header-title .page-title {
-  margin-bottom: 12px;
-  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 .small-menu .side-menu,
 .small-menu .topbar-left {
