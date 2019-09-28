@@ -1,3 +1,5 @@
+# HACKATRIX 2019 
+
 # AsesorApp
 
 # Descripción
@@ -19,9 +21,10 @@ https://hackatrixapp.herokuapp.com/
 
 
 
-# HACKATRIX 2019 
+
 # Equipo: 2Good4U 
-# Integrantes:
+
+Integrantes:
 
 * Diana Alvarez
 * Ferney Moreno
