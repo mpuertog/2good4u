@@ -33,5 +33,4 @@ urlpatterns = [
                   path('ofertas/<idCaso>/', views.Ofertas.as_view(), name='ofertas'),
                   path('usuario/<id>/', views.Usuario_Detail.as_view(), name='usuario'),
                   path('notificaciones/<idUsuario>/', views.Notificacion_Usuario.as_view(), name='notificaciones'),
-
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
