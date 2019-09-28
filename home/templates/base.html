@@ -45,9 +45,9 @@
                 <ul class="nav navbar-nav navbar-right pull-right mt-2">
                     <li class="dropdown" id="dropdownNavbar">
                         <a href="{% url 'logout' %}" class="exit"><img src='{% static "assets/images/exit.png" %}'
-                            height="40"
-                            alt="exit">
-                                <span class="profile-username">
+                                                                       height="40"
+                                                                       alt="exit">
+                            <span class="profile-username">
                                             {{active_user.first_name}} {{active_user.last_name}} <span
                                     class="caret"></span>
                                     </span>
@@ -64,12 +64,12 @@
                 <!-- LOGO -->
 
                 <div class="title">
-                   
+
                     <!--<a href="index.html" class="logo"><span>Up</span>Bond</a>-->
                     <!--<a href="index.html" class="logo-sm"><span>U</span></a>-->
                     <a href="{% url 'index' %}" class="auction"><img src='{% static "assets/images/auction.png" %}'
-                        height="40"
-                        alt="auction"></a>
+                                                                     height="40"
+                                                                     alt="auction"></a>
                     <h1>AsesorApp</h1>
                 </div>
                 <!--/.nav-collapse -->
@@ -88,11 +88,11 @@
             <!--- Divider -->
             <div id="sidebar-menu">
                 <ul>
-                    {% if not user.is_authenticated %}
                     <li class="has-sub active nav-active">
                         <a href="{% url 'index' %}" class="waves-effect"><i
                                 class="mdi mdi-home"></i><span> Home </span><span class="pull-right"></a>
                     </li>
+                    {% if not user.is_authenticated %}
                     <li class="has_sub active nav-active">
                         <a href="javascript:void(0);" class="waves-effect"><i
                                 class="mdi mdi-account-key"></i><span> Ingreso </span><span class="pull-right"><i
@@ -100,53 +100,21 @@
                         <ul class="list-unstyled">
                             <!-- aqui va el login y el registro -->
                             <li><a href="{% url 'signup' %}">Registrarse</a></li>
-                            <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>L
+                            <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+                            L
                         </ul>
                     </li>
-                    <li class="has-sub active nav-active">
-                            <a href="javascript:void(1);" class="waves-effect"><i
-                                    class="mdi mdi-account-check"></i><span> Casos Disponibles</span><span class="pull-right"></a>
-                        </li>
+
                     {% else %}
                     <li class="has-sub active nav-active">
                         <a href="{% url 'index' %}" class="waves-effect"><i
                                 class="mdi mdi-home"></i><span> Home </span><span class="pull-right"></a>
                     </li>
-                    {% if role_data.role == 2 %}
                     <li class="has-sub active nav-active">
-                        <a href="javascript:void(0);" class="waves-effect"><i
-                                class="mdi mdi-calendar-clock"></i><span> Mis Servicios </span><span
-                                class="pull-right"><i
-                                class="mdi mdi-chevron-right"></i></span></a>
-                        <ul class="list-unstyled">
-                            <li><a href="{% url 'nuevaSolicitudServicio' %}">Solicitar Servicio</a></li>
-                            <li><a href="{% url 'listadoServicios' %}">Ver estado de Servicios</a></li>
-                        </ul>
+                        <a href="{% url 'casos' %}" class="waves-effect"><i
+                                class="mdi mdi-account-check"></i><span> Casos Disponibles</span><span
+                                class="pull-right"></a>
                     </li>
-                    {% elif role_data.role == 1 %}
-                    <li class="has-sub active nav-active">
-                        <a href="javascript:void(0);" class="waves-effect"><i
-                                class="mdi mdi-calendar-clock"></i><span> Acciones Admin </span><span
-                                class="pull-right"><i
-                                class="mdi mdi-chevron-right"></i></span></a>
-                        <ul class="list-unstyled">
-                            <li><a href="{% url 'listadoServicios' %}">Listado servicios</a></li>
-                            <li><a href="{% url 'solicitudesPendientes' %}">Asignar prestador</a></li>
-                            <li><a href="{% url 'estadisticas' %}">Ver estadísticas</a></li>
-                        </ul>
-                    </li>
-                    {% elif role_data.role == 3 %}
-                    <li class="has-sub active nav-active">
-                        <a href="javascript:void(0);" class="waves-effect"><i
-                                class="mdi mdi-calendar-clock"></i><span>Acciones </span><span
-                                class="pull-right"><i
-                                class="mdi mdi-chevron-right"></i></span></a>
-                        <ul class="list-unstyled">
-                            <li><a href="{% url 'listadoServicios' %}">Solicitudes</a></li>
-                            <li><a href="">Ver estadísticas</a></li>
-                        </ul>
-                    </li>
-                    {% endif %}
                     {% endif %}
                 </ul>
             </div>
