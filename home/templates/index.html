@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load static %}
+
+{% block content %}
+
+<!-- Start content -->
+<div class="content">
+
+    <div class="">
+        <div class="page-header-title">
+            <h4 class="page-title">Asesorapp</h4>
+        </div>
+    </div>
+
+    <div class="page-content-wrapper ">
+        <div class="container">
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+                {% endif %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+                {% endif %}
+
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+
+            {% if user.is_authenticated and role_data.role == 2 %}
+            <div class="panel panel-color panel-dark">
+                <div class="panel-heading">
+                    <h3 class="panel-title">En Asesoraap consigues asesoría legal rápido y fácil</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Aquí encontrarás personal capacitados y el mejor acompañamiento para todas tus
+                        necesidades judiciales, incluyendo:</p>
+                    <ul>
+                        <li><p>Abogados</p></li>
+                        <li><p>Estudiantes</p></li>
+                        <li><p>Voluntarios</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-color panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Inicio Rápido</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Para iniciar, regístrate en nuestra plataforma</p>
+                    <p></p>
+                </div>
+            </div>
+            {% elif user.is_authenticated and role_data.role == 1 %}
+            <div class="panel panel-color panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Acciones</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li><p>Asignar prestador</p></li>
+                        <li><p>Ver Estadisticas</p></li>
+                    </ul>
+                </div>
+            </div>
+            {% elif user.is_authenticated and role_data.role == 3 %}
+            <div class="panel panel-color panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Instrucciones</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li><p>Ver solicitudes asignadas</p></li>
+                        <li><p>Ver Estadisticas</p></li>
+                    </ul>
+                </div>
+            </div>
+
+            {% else %}
+            <div class="panel panel-color panel-dark">
+                <div class="panel-heading">
+                    <h3 class="panel-title">En Asesoraap consigues asesoría legal rápido y fácil </h3>
+                </div>
+                <div class="panel-body">
+                    <p>Aquí encontrarás personal capacitados y el mejor acompañamiento para todas tus
+                        necesidades judiciales, incluyendo:</p>
+                    <ul>
+                        <li><p>Abogados</p></li>
+                        <li><p>Estudiantes</p></li>
+                        <li><p>Voluntarios</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-color panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Guía de uso</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li><p>Registrate</p></li>
+                        <li><p>Inicia sesión para realizar buscar asesoría</p></li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+
+        </div><!-- container -->
+    </div> <!-- Page content Wrapper -->
+</div> <!-- content -->
+
+{% endblock %}

@@ -3,9 +3,9 @@ from django.shortcuts import render, render_to_response
 
 def index(request):
     active_user = None
+
     if request.user.is_authenticated:
         active_user = request.user
-
     context = {
         'active_user': active_user,
     }
