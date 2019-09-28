@@ -1,4 +1,6 @@
 from django.shortcuts import render, render_to_response
+from django.contrib.auth import login as auth_login, logout
+from django.http import HttpResponseRedirect
 
 
 def index(request):
@@ -10,6 +12,11 @@ def index(request):
         'active_user': active_user,
     }
     return render(request, 'index.html', context)
+
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
 
 def handler404(request, *args, **argv):

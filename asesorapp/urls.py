@@ -22,6 +22,7 @@ from django.urls import path
 from home import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    url(r'^$', views.index, name='index'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                  path('admin/', admin.site.urls),
+                  url(r'^$', views.index, name='index'),
+                  url(r'^logout/$', views.logout_view, name='logout'),
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
