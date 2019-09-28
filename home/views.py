@@ -99,25 +99,6 @@ def new_case(request):
     return render(request, 'new_case.html')
 
 
-def ofertas_por_caso(request,idCaso):
-    context = {
-        'ofertas': Oferta.objects.filter(id=idCaso)
-    }
-    return render(request, "ofertas.html", context)
-
-def notificaciones_por_usuario(request,idUsuario):
-    context = {
-        'notificaciones': Notificacion.objects.filter(id=idUsuario)
-    }
-    return render(request, "notificaciones.html", context)
-
-def usuario(idUsuario):
-    context = {
-        'usuario': Usuario.objects.filter(id=idUsuario)
-    }
-    return render(request, "usuario.html", context)
-
-
 class CasosView(ListView):
     model = Caso
     paginate_by = 5
