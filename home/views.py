@@ -98,11 +98,13 @@ def handler500(request, *args, **argv):
 def new_case(request):
     return render(request, 'new_case.html')
 
+def bid(request):
+    return render(request, 'bid.html')
 
 class CasosView(ListView):
     model = Caso
     paginate_by = 5
-    template_name = "casos.html"
+    template_name = "lista_casos.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -114,7 +116,7 @@ class CasosView(ListView):
 
 class Caso_Detail(DetailView):
     model = Caso
-    template_name = "caso_detail.html"
+    template_name = "caso_detalle.html"
 
 
 # ofertas por caso

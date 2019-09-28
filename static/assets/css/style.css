@@ -3059,6 +3059,9 @@ body.fixed-left .side-menu.left {
 .page-header-title .breadcrumb {
   margin-bottom: 0;
 }
+.mt-2 {
+  margin-top: 10 !important;
+}
 .mt-3 {
   margin-top: 30 !important;
 }

@@ -41,14 +41,12 @@
 
                 {% if user.is_authenticated %}
                 <!-- Menu para cerrar sesion -->
-                <ul class="nav navbar-nav navbar-right pull-right">
-                    <li class="dropdown">
-
-                        <a href="" class="dropdown-toggle profile waves-effect waves-light"
-                           data-toggle="dropdown"
-                           aria-expanded="true">
-                            <img src='{% static role_data.fotoUrl %}' width="30" height="30" alt="">
-                            <span class="profile-username">
+                <ul class="nav navbar-nav navbar-right pull-right mt-2">
+                    <li class="dropdown" id="dropdownNavbar">
+                        <a href="{% url 'index' %}" class="exit"><img src='{% static "assets/images/exit.png" %}'
+                            height="40"
+                            alt="exit">
+                                <span class="profile-username">
                                             {{active_user.first_name}} {{active_user.last_name}} <span
                                     class="caret"></span>
                                     </span>
