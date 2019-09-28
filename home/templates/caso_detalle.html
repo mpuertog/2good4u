@@ -33,14 +33,14 @@
                 {% endfor %}
             </ul>
             {% endif %}
+
+
             <!-- CONTENIDO -->
-            <h1>Lista de casos</h1>
-            <ul>
-            {% for caso in object_list %}
-            <li> <a href="caso/{{caso.id}}/">{{caso.titulo}}</a></li>
-            <br>
-            {% endfor %}
-            </ul>
+            <h1>{{ object.titulo }}</h1>
+            
+            <p>{{ object.descripcion }}</p>
+
+            <a>Tomar Caso</a>
             <!-- /CONTENIDO -->
 
 
