@@ -546,14 +546,14 @@ a:focus {
   border-top-color: #de1036;
 }
 .list-group-item.active {
-  background-color: #dddddd;
-  border-color: #dddddd;
+  background-color: #C9E9E6;
+  border-color: #A2C6C2;
   color: #444444;
   z-index: 2;
 }
 .list-group-item.active:hover {
-  background-color: #dddddd;
-  border-color: #dddddd;
+  background-color: #A2C6C2;
+  border-color: #A2C6C2;
   color: #444444;
   z-index: 2;
 }
@@ -3059,20 +3059,6 @@ body.fixed-left .side-menu.left {
 .page-header-title .breadcrumb {
   margin-bottom: 0;
 }
-.mt-2 {
-  margin-top: 10 !important;
-}
-.mt-3 {
-  margin-top: 30 !important;
-}
-.ml-1 {
-  margin-left: 5 !important;
-
-}
-.ml-2 {
-  margin-left: 20 !important;
-
-}
 .page-header-title .page-title {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -3106,6 +3092,24 @@ body.fixed-left .side-menu.left {
 }
 .small-menu .content-page {
   margin-left: 190px;
+}
+/*
+Margin
+*/
+.mt-2 {
+  margin-top: 10 !important;
+}
+.mt-3 {
+  margin-top: 30 !important;
+}
+.ml-1 {
+  margin-left: 5 !important;
+}
+.ml-2 {
+  margin-left: 20 !important;
+}
+.mb-2 {
+  margin-bottom: 10 !important;
 }
 /*
 File: Responsive
