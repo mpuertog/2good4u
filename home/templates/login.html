@@ -41,7 +41,7 @@
                                     {% csrf_token %}
 
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">Email</label>
+                                        <label class="col-md-2 control-label ml-1">Email</label>
                                         <div class="col-md-10">
                                             {{ form_login.email_login|add_class:'form-control' }}
                                         </div>
@@ -49,13 +49,13 @@
 
 
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">Contraseña</label>
+                                        <label class="col-md-2 control-label ml-1">Contraseña</label>
                                         <div class="col-md-10">
                                             {{ form_login.password_login|add_class:'form-control' }}
                                         </div>
                                     </div>
 
-                                    <div class="form-group mt-3 ml-3">
+                                    <div class="form-group mt-3 ml-0">
                                         <button type="submit" class="btn btn-dark waves-effect waves-light m-l-10">
                                             Iniciar Sesión
                                         </button>
