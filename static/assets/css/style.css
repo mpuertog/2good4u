@@ -3067,6 +3067,11 @@ body.fixed-left .side-menu.left {
 }
 .ml-1 {
   margin-left: 5 !important;
+
+}
+.ml-2 {
+  margin-left: 20 !important;
+
 }
 .page-header-title .page-title {
   margin-top: 20px;
