@@ -98,6 +98,8 @@ def handler500(request, *args, **argv):
 def new_case(request):
     return render(request, 'new_case.html')
 
+def bid(request):
+    return render(request, 'bid.html')
 
 class CasosView(ListView):
     model = Caso

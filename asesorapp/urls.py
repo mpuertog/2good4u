@@ -28,6 +28,7 @@ urlpatterns = [
                   url(r'^login/$', views.login_view, name='login'),
                   url(r'^signup/$', views.signup_view, name='signup'),
                   url(r'^new_case/$', views.new_case, name='new_case'),
+                  url(r'^bid/$', views.bid, name='bid'),
                   path('casos/', views.CasosView.as_view(), name='casos'),
                   path('casos/caso/<pk>/', views.Caso_Detail.as_view(), name='caso'),
                   path('ofertas/<idCaso>/', views.Ofertas.as_view(), name='ofertas'),
