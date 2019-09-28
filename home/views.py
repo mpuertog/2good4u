@@ -5,7 +5,10 @@ from django.contrib.auth import login as auth_login, logout, authenticate
 from django.http import HttpResponseRedirect
 from home.forms import FormLogin, FormSignup
 from asesorappConfig.models import Usuario
-
+from asesorappConfig.models import Caso
+from asesorappConfig.models import Oferta
+from asesorappConfig.models import Notificacion
+from django.views.generic import ListView, DetailView, View
 
 def index(request):
     active_user = None
@@ -91,3 +94,52 @@ def handler500(request, *args, **argv):
 
 def new_case(request):
     return render(request, 'new_case.html')
+
+def ofertas_por_caso(request,idCaso):
+    context = {
+        'ofertas': Oferta.objects.filter(id=idCaso)
+    }
+    return render(request, "ofertas.html", context)
+
+def notificaciones_por_usuario(request,idUsuario):
+    context = {
+        'notificaciones': Notificacion.objects.filter(id=idUsuario)
+    }
+    return render(request, "notificaciones.html", context)
+
+def usuario(idUsuario):
+    context = {
+        'usuario': Usuario.objects.filter(id=idUsuario)
+    }
+    return render(request, "usuario.html", context)
+
+
+class CasosView(ListView):
+    model = Caso
+    paginate_by = 5
+    template_name = "casos.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+    
+    def get_queryset(self):
+        return Caso.objects.all()
+
+class Caso_Detail(DetailView):
+    model = Caso
+    template_name = "caso_detail.html"
+
+#ofertas por caso
+class Ofertas(ListView):
+    model = Caso
+    paginate_by = 5
+    template_name = "ofertas.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+    
+    def get_queryset(self):
+        return Oferta.objects.filter(title__contains=self.kwargs['idCaso'])
+        

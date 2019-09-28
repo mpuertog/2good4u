@@ -28,4 +28,5 @@ urlpatterns = [
                   url(r'^login/$', views.login_view, name='login'),
                   url(r'^signup/$', views.signup_view, name='signup'),
                   url(r'^new_case/$', views.new_case, name='new_case'),
+                  path('casos/', views.CasosView.as_view(), name='casos'),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
