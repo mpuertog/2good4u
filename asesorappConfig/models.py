@@ -7,7 +7,7 @@ class Estudio(models.Model):
     estatus = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.titulo
+        return str(self.id) + " " + self.titulo
 
 
 class Usuario(models.Model):
@@ -16,13 +16,13 @@ class Usuario(models.Model):
     numero_cedula = models.IntegerField()
     correo = models.CharField(max_length=100)
     numero_telefono = models.IntegerField()
-    url_foto = models.CharField(max_length=100)
+    url_foto = models.CharField(max_length=1000,blank=True)
     esAbogado = models.BooleanField(default=False)
-    descripcion_perfil = models.TextField()
-    estudios = models.ManyToManyField(Estudio)
+    descripcion_perfil = models.TextField(blank=True)
+    estudios = models.ManyToManyField(Estudio,blank=True)
 
     def __str__(self):
-        return self.nombres + self.apellidos
+        return str(self.id) + " " + self.nombres +" "+ self.apellidos
 
 
 class Caso(models.Model):
@@ -33,16 +33,17 @@ class Caso(models.Model):
     ciudad = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.titulo
+        return str(self.id) + " " +self.titulo
 
 
 class Oferta(models.Model):
     autor = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now_add=True)
-    descripcion = models.TextField()
-
+    descripcion = models.TextField(blank=True)
+    tarifa_hora =  models.IntegerField(default=0)
+    caso = models.ForeignKey(Caso, on_delete=models.CASCADE, default=-1)
     def __str__(self):
-        return self.descripcion
+        return str(self.id) + " [" + self.caso.titulo +"] "+ self.autor.nombres + " " + self.autor.apellidos 
 
 
 class Notificacion(models.Model):
@@ -51,4 +52,4 @@ class Notificacion(models.Model):
     texto = models.TextField()
 
     def __str__(self):
-        return self.texto
+        return str(self.id) +" [to: " + self.destinatario.nombres +"] "+self.texto
