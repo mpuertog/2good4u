@@ -29,4 +29,9 @@ urlpatterns = [
                   url(r'^signup/$', views.signup_view, name='signup'),
                   url(r'^new_case/$', views.new_case, name='new_case'),
                   path('casos/', views.CasosView.as_view(), name='casos'),
+                  path('caso/<id>/', views.Caso_Detail.as_view(), name='caso'),
+                  path('ofertas/<idCaso>/', views.Ofertas.as_view(), name='ofertas'),
+                  path('usuario/<id>/', views.Usuario_Detail.as_view(), name='usuario'),
+                  path('notificaciones/<idUsuario>/', views.Notificacion_Usuario.as_view(), name='notificaciones'),
+
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

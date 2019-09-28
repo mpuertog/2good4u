@@ -95,25 +95,6 @@ def handler500(request, *args, **argv):
 def new_case(request):
     return render(request, 'new_case.html')
 
-def ofertas_por_caso(request,idCaso):
-    context = {
-        'ofertas': Oferta.objects.filter(id=idCaso)
-    }
-    return render(request, "ofertas.html", context)
-
-def notificaciones_por_usuario(request,idUsuario):
-    context = {
-        'notificaciones': Notificacion.objects.filter(id=idUsuario)
-    }
-    return render(request, "notificaciones.html", context)
-
-def usuario(idUsuario):
-    context = {
-        'usuario': Usuario.objects.filter(id=idUsuario)
-    }
-    return render(request, "usuario.html", context)
-
-
 class CasosView(ListView):
     model = Caso
     paginate_by = 5
@@ -142,4 +123,21 @@ class Ofertas(ListView):
     
     def get_queryset(self):
         return Oferta.objects.filter(title__contains=self.kwargs['idCaso'])
+
+class Usuario_Detail(DetailView):
+    model = Usuario
+    template_name = "usuario_detail.html"
+
+class Notificacion_Usuario(ListView):
+    model = Caso
+    paginate_by = 5
+    template_name = "notificacion_usuario.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+    
+    def get_queryset(self):
+        return Notificacion.objects.filter(title__containsdestinatario=self.kwargs['idUsuario'])
+
         
