@@ -10,6 +10,7 @@ from asesorappConfig.models import Oferta
 from asesorappConfig.models import Notificacion
 from django.views.generic import ListView, DetailView, View
 
+
 def index(request):
     active_user = None
 
@@ -61,7 +62,8 @@ def signup_view(request):
 
                     user = User.objects.get(username=username)
 
-                    Usuario.objects.create(user_id=user.id, numero_telefono=mobile, esAbogado=False, numero_cedula=document)
+                    Usuario.objects.create(user_id=user.id, numero_telefono=mobile, esAbogado=False,
+                                           numero_cedula=document)
                     messages.add_message(request, messages.INFO, 'Usuario creado exitosamente, por favor inicie sesión')
                 except Exception as error:
                     print(error)
@@ -92,10 +94,11 @@ def handler500(request, *args, **argv):
     response.status_code = 500
     return response
 
+
 def new_case(request):
     return render(request, 'new_case.html')
 
-<<<<<<< HEAD
+
 def ofertas_por_caso(request,idCaso):
     context = {
         'ofertas': Oferta.objects.filter(id=idCaso)
@@ -115,8 +118,6 @@ def usuario(idUsuario):
     return render(request, "usuario.html", context)
 
 
-=======
->>>>>>> 7cffccaa5a41d924281dd1bd80edf80feb4ec69b
 class CasosView(ListView):
     model = Caso
     paginate_by = 5
@@ -125,15 +126,17 @@ class CasosView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-    
+
     def get_queryset(self):
         return Caso.objects.all()
+
 
 class Caso_Detail(DetailView):
     model = Caso
     template_name = "caso_detail.html"
 
-#ofertas por caso
+
+# ofertas por caso
 class Ofertas(ListView):
     model = Caso
     paginate_by = 5
@@ -142,15 +145,15 @@ class Ofertas(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-    
+
     def get_queryset(self):
         return Oferta.objects.filter(title__contains=self.kwargs['idCaso'])
-<<<<<<< HEAD
-=======
+
 
 class Usuario_Detail(DetailView):
     model = Usuario
     template_name = "usuario_detail.html"
+
 
 class Notificacion_Usuario(ListView):
     model = Caso
@@ -160,9 +163,6 @@ class Notificacion_Usuario(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-    
+
     def get_queryset(self):
         return Notificacion.objects.filter(title__containsdestinatario=self.kwargs['idUsuario'])
-
->>>>>>> 7cffccaa5a41d924281dd1bd80edf80feb4ec69b
-        
