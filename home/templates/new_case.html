@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<form>
+    <h2>Registra tu caso</h2>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Cuentanos, ¿Qué ocurrió?  Describe tu problema de la formas mas clara que puedas. (Max 500 caracteres)</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">¿En donde estás ubicado?</label>
+        <input class="form-control" id="exampleFormControlTextarea1"/>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Buscar asesoría</button>
+</form>
+{% endblock %}
